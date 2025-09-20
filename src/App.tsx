@@ -1,11 +1,15 @@
 import './App.css'
-import SearchRepositories from './components/SearchRepositories';
+import HeaderComponent from './components/Header';
+import ResultRepositoriesComponent from './components/ResultRepositories';
+import SearchRepositoriesComponent from './components/SearchRepositories';
 
 function App() {
   return(
-    <>
-      <SearchRepositories/>
-    </>
+    <div>
+      <HeaderComponent/>
+      <SearchRepositoriesComponent/>
+      <ResultRepositoriesComponent/>
+    </div>
   )
 }
 
