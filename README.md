@@ -51,3 +51,13 @@ npm run dev
 ```sh
 http://localhost:5173
 ```
+
+### Opção de build
+rode
+```
+npm run build
+```
+E depois
+```
+npm run preview
+```
