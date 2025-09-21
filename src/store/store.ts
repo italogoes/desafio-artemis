@@ -1,11 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 import reposReducer from './features/repos'
 import loadingReducer from './features/loading'
+import pageReducer from './features/page'
+import totalPagesReducer from './features/totalPages'
 
 export const store = configureStore({
   reducer: {
     repos: reposReducer,
-    loading: loadingReducer
+    loading: loadingReducer,
+    page: pageReducer,
+    totalPages: totalPagesReducer
   }
 })
 

@@ -16,10 +16,10 @@ O desafio consiste em implementar uma página web que permita buscar repositóri
 no GitHub a partir de um campo de texto.
 
 # Funcionalidades
+
 <ul>
   <li>Sempre que o usuário digitar um termo, a aplicação deve exibir os repositórios cujo nome contenha esse termo.</li>
-  
-  <li>A lista de resultados deve mostrar, para cada repositório encontrado, o nome, a descrição, a quantidade de estrelas, a data da última atualização e o link direto para o repositório no GitHub.</li>
+  <li>A lista de resultados devem mostrar, para cada repositório encontrado, o nome, a descrição, a quantidade de estrelas, a data da última atualização e o link direto para o repositório no GitHub.</li>
   <li>Além disso, a página deve oferecer suporte a paginação para que seja possível navegar
 entre diferentes páginas de resultados, bem como opções de ordenação que permitam
 ao usuário organizar os repositórios exibidos, por exemplo, pelo número de estrelas ou
