@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
+import type { Repo } from '../../interfaces/IRepo'
 
 export interface ReposState {
-    value: unknown[]
+    value: Repo[]
 }
 
 const initialState: ReposState = {

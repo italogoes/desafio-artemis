@@ -1,0 +1,80 @@
+.title{
+    padding: 200px 0 50px 0;
+}
+
+.content_repos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.repos_single{
+    border-radius: 8px 0px;
+    width: 31.5%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.link_repo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 8px 8px 0 0;
+    padding: 30px;
+    text-decoration: none;
+    height: 100%;
+    transition: all .5s;
+}
+
+.link_repo:hover{
+    box-shadow: 0 0 10px 2px #b8b8b8;
+}
+
+.name_repo{
+    word-wrap: break-word;
+    color: #000;
+}
+
+.name_repo, .desc_repo, .stars_repo{
+    padding-bottom: 20px;
+}
+
+.desc_repo, .stars_repo, .att_repo{
+    font-weight: 100;
+    color: #545454;
+}
+
+.desc_repo span, .att_repo span{
+    font-weight: 500;
+    font-size: 18px;
+    color: #000;
+}
+
+.btn_remove{
+    background-color: rgb(252, 40, 40);
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 0 0 8px 8px;
+    transition: all .3s;
+}
+
+.btn_remove:hover{
+    background-color: rgb(220, 0, 0);
+}
+
+@media (width < 1280px) {
+    .content_repos{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .repos_single{
+        width: 300px;
+    }
+}

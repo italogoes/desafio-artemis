@@ -29,35 +29,25 @@ pela data da última atualização.</li>
 # Como executar o projeto
 
 ### 1. Clone o repositório no seu computador
-```
+
+```sh
 git clone https://github.com/italogoes/desafio-artemis.git
 ```
 
 ### 2. Instale as dependências
-```
+
+```sh
 npm install
 ```
 
-### 3. Gere seu Personal access token do github
-<ul>
-    <li>Clique em seu avatar do github no canto superior direito</li>
-    <li>Selecione a opção "Settings"</li>
-    <li>No menu lateral esquerdo, selecione "Developer Settings"</li>
-    <li>Expanda a opção "Personal access tokens"</li>
-    <li>Escolha a opção "Tokens (classic)" e clique em "Generate new token"</li>
-</ul>
-
-### 4. Adicione seu token ao arquivo .env
-```
-VITE_GITHUB_API_KEY=SEU_TOKEN_PESSOAL_AQUI
-```
-
 ### 5. Rode o projeto
-```
+
+```sh
 npm run dev
 ```
 
-### Tudo pronto, você já pode abrir seu navegador na porta 
-```
+### Tudo pronto, você já pode abrir seu navegador na porta
+
+```sh
 http://localhost:5173
-``` 
+```
