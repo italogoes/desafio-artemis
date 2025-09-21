@@ -28,7 +28,7 @@ pela data da última atualização.</li>
 
 # Como executar o projeto
 
-#### 1. Clone o repositório no seu computador
+### 1. Clone o repositório no seu computador
 ```
 git clone https://github.com/italogoes/desafio-artemis.git
 ```
