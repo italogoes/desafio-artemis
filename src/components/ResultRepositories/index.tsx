@@ -13,12 +13,13 @@ const ResultRepositoriesComponent = () => {
     const loading = useSelector((state: RootState) => state.loading.value)
     const page = useSelector((state: RootState) => state.page.value)
     const totalPages = useSelector((state: RootState) => state.totalPages.value)
+    const filters = useSelector((state: RootState) => state.filters.value)
 
-    function date(value: string){
+    function date(value: string) {
         return new Date(value)
     }
 
-    function getFilter(filter: string | undefined){
+    function getFilter(filter: string | undefined) {
         dispatch(setFilters(filter))
     }
 
@@ -26,16 +27,23 @@ const ResultRepositoriesComponent = () => {
         <div>
             <div className="container">
                 {repos.length != 0 && (
-                    <div className={style.filters}>
-                        <div onClick={() => getFilter("stars")}>Estrelas</div>
-                        <div onClick={() => getFilter("updated")}>Última atualização</div>
+                    <div>
+                        <div>
+                            <p className={style.filter_text}>Filtrar por:</p>
+                        </div>
+
+                        <div className={style.filters}>
+                            <button className={filters == "stars" ? style.button_active : style.button_disable} onClick={() => getFilter("stars")}>Estrelas</button>
+                            <button className={filters == "updated" ? style.button_active : style.button_disable} onClick={() => getFilter("updated")}>Última atualização</button>
+                            <button className={filters == undefined ? style.button_active : style.button_disable} onClick={() => getFilter(undefined)}>Padrão</button>
+                        </div>
                     </div>
                 )}
 
                 <div className={style.content_repos}>
                     {loading ?
                         <div className={style.loader}>
-                            <SyncLoader color="#6b00d6" />
+                            <SyncLoader color="#c78fff" />
                         </div>
                         :
                         repos.map((repo: any) => (
@@ -46,9 +54,9 @@ const ResultRepositoriesComponent = () => {
                                         <p className={style.desc_repo}><span>Descrição:</span> {repo.description}</p>
                                         <p className={style.stars_repo}><FaRegStar color="#ffb703" /> {repo.stargazers_count}</p>
                                     </div>
-                                    
+
                                     <p className={style.att_repo}><span>Útima atualização:</span> {date(repo.updated_at).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })}</p>
-                                </a>    
+                                </a>
                             </div>
                         ))
                     }
@@ -56,22 +64,22 @@ const ResultRepositoriesComponent = () => {
 
                 {repos.length != 0 && (
                     <div className={style.pagination}>
-                        <button 
-                        className={style.btn_pagination}
-                        onClick={() => dispatch(setPage(page - 1))}
-                        disabled={page === 1}
+                        <button
+                            className={style.btn_pagination}
+                            onClick={() => dispatch(setPage(page - 1))}
+                            disabled={page === 1}
                         >
-                        Anterior
+                            Anterior
                         </button>
 
                         <span>Página {page} de {totalPages}</span>
 
                         <button
-                        className={style.btn_pagination} 
-                        onClick={() => dispatch(setPage(page + 1))}
-                        disabled={page === totalPages}
+                            className={style.btn_pagination}
+                            onClick={() => dispatch(setPage(page + 1))}
+                            disabled={page === totalPages}
                         >
-                        Próxima
+                            Próxima
                         </button>
                     </div>
                 )}

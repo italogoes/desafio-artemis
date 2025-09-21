@@ -14,6 +14,7 @@ const SearchRepositoriesComponent = () => {
   const page = useSelector((state: RootState) => state.page.value)
   const filters = useSelector((state: RootState) => state.filters.value)
   const [repoSearch, setRepoSearch] = useState<string>("");
+  const [isValidName, setIsValidName] = useState<boolean>(true)
   const perPage = 6;
 
   useEffect(() => {
@@ -35,6 +36,12 @@ const SearchRepositoriesComponent = () => {
           page: page,
           sort: filters
         });
+
+        if(response.data.items.length === 0) {
+          setIsValidName(false)
+        } else {
+          setIsValidName(true)
+        }
 
         dispatch(setRepos(response.data.items));
 
@@ -72,6 +79,10 @@ const SearchRepositoriesComponent = () => {
             onChange={(e) => handleSearchChange(e.target.value)} 
           />
         </div>
+
+        {!isValidName && (
+          <div>{repoSearch} nao é um nome de repositorio valido</div>
+        )}
       </div>
     </div>
   );
