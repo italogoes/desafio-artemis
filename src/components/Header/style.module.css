@@ -8,6 +8,24 @@
     box-shadow: 0px 0px 10px 1px #ddd;
     background-color: #fff;
 }
+.content_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu{
+    nav{
+        display: flex;
+        gap: 20px;
+
+        a{
+            text-decoration: none;
+            color: #000;
+            font-size: 18px;
+        }
+    }
+}
 
 .logo h1{
     font-weight: 100;

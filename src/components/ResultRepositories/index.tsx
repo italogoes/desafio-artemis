@@ -1,11 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useDispatch, useSelector } from "react-redux";
 import { SyncLoader } from "react-spinners";
 import type { RootState } from "../../store/store";
 import style from './style.module.css';
-import { FaRegStar } from "react-icons/fa";
+import { FaExternalLinkAlt, FaRegStar } from "react-icons/fa";
 import { setPage } from "../../store/features/page";
 import { setFilters } from "../../store/features/filters";
+import type { Repo } from "../../interfaces/IRepo";
+
 
 const ResultRepositoriesComponent = () => {
     const dispatch = useDispatch();
@@ -21,6 +22,25 @@ const ResultRepositoriesComponent = () => {
 
     function getFilter(filter: string | undefined) {
         dispatch(setFilters(filter))
+    }
+
+    function addFavorite(id: number) {
+        const stored = localStorage.getItem("favoritos");
+        const favorites: Repo[] = stored ? JSON.parse(stored) : [];
+
+        const repo = repos.find((r: Repo) => r.id === id);
+
+        if (repo) {
+            const exists = favorites.some(fav => fav.id === repo.id);
+
+            if (!exists) {
+                favorites.push(repo);
+                localStorage.setItem("favoritos", JSON.stringify(favorites));
+                alert("Favorito adicionado");
+            } else {
+                alert("Esse repo já está nos favoritos.");
+            }
+        }
     }
 
     return (
@@ -46,17 +66,21 @@ const ResultRepositoriesComponent = () => {
                             <SyncLoader color="#c78fff" />
                         </div>
                         :
-                        repos.map((repo: any) => (
+                        repos.map((repo: Repo) => (
                             <div key={repo.id} className={style.repos_single}>
                                 <a className={style.link_repo} href={repo.html_url} target="_blank">
                                     <div>
-                                        <h2 className={style.name_repo}>{repo.name}</h2>
+                                        <div className={style.icon_title}>
+                                            <h2 className={style.name_repo}>{repo.name}</h2>    
+                                            <FaExternalLinkAlt color="#000"/>
+                                        </div>
                                         <p className={style.desc_repo}><span>Descrição:</span> {repo.description}</p>
                                         <p className={style.stars_repo}><FaRegStar color="#ffb703" /> {repo.stargazers_count}</p>
                                     </div>
 
                                     <p className={style.att_repo}><span>Útima atualização:</span> {date(repo.updated_at).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })}</p>
                                 </a>
+                                <button onClick={() => addFavorite(repo.id)} className={style.btn_favorite}>Favoritar</button>
                             </div>
                         ))
                     }
