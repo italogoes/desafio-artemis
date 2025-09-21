@@ -12,12 +12,14 @@ import { setTotalPages } from "../../store/features/totalPages";
 const SearchRepositoriesComponent = () => {
   const dispatch = useDispatch();
   const page = useSelector((state: RootState) => state.page.value)
+  const filters = useSelector((state: RootState) => state.filters.value)
   const [repoSearch, setRepoSearch] = useState<string>("");
   const perPage = 6;
 
   useEffect(() => {
     if (!repoSearch || repoSearch === "") {
       dispatch(setLoading(false));
+      dispatch(setRepos([]));
       dispatch(setTotalPages(1));
       return;
     }
@@ -31,7 +33,7 @@ const SearchRepositoriesComponent = () => {
           q: `${repoSearch} in:name`,
           per_page: perPage,
           page: page,
-          sort: "stars"
+          sort: filters
         });
 
         dispatch(setRepos(response.data.items));
@@ -47,10 +49,11 @@ const SearchRepositoriesComponent = () => {
     }, 1000);
 
     return () => clearTimeout(timeOut);
-  }, [dispatch, repoSearch, page]);
+  }, [dispatch, repoSearch, page, filters]);
 
   const handleSearchChange = (value: string) => {
     setRepoSearch(value);
+    dispatch(setRepos([]));
     dispatch(setPage(1));
   };
 

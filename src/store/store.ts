@@ -3,13 +3,15 @@ import reposReducer from './features/repos'
 import loadingReducer from './features/loading'
 import pageReducer from './features/page'
 import totalPagesReducer from './features/totalPages'
+import filtersReducer from './features/filters'
 
 export const store = configureStore({
   reducer: {
     repos: reposReducer,
     loading: loadingReducer,
     page: pageReducer,
-    totalPages: totalPagesReducer
+    totalPages: totalPagesReducer,
+    filters: filtersReducer
   }
 })
 
