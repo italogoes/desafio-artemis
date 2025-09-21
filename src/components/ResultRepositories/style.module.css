@@ -23,6 +23,10 @@
 }
 
 .link_repo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ddd;
     border-radius: 8px;
     padding: 30px;
     text-decoration: none;

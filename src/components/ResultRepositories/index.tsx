@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { SyncLoader } from "react-spinners";
 import type { RootState } from "../../store/store";
 import style from './style.module.css';
-import { useEffect } from "react";
 import { FaRegStar } from "react-icons/fa";
 import { setPage } from "../../store/features/page";
+import { setFilters } from "../../store/features/filters";
 
 const ResultRepositoriesComponent = () => {
     const dispatch = useDispatch();
@@ -18,14 +18,20 @@ const ResultRepositoriesComponent = () => {
         return new Date(value)
     }
 
-    useEffect(() => {
-        console.log(repos);
-        
-    }, [repos])
+    function getFilter(filter: string | undefined){
+        dispatch(setFilters(filter))
+    }
 
     return (
         <div>
             <div className="container">
+                {repos.length != 0 && (
+                    <div className={style.filters}>
+                        <div onClick={() => getFilter("stars")}>Estrelas</div>
+                        <div onClick={() => getFilter("updated")}>Última atualização</div>
+                    </div>
+                )}
+
                 <div className={style.content_repos}>
                     {loading ?
                         <div className={style.loader}>
@@ -39,8 +45,9 @@ const ResultRepositoriesComponent = () => {
                                         <h2 className={style.name_repo}>{repo.name}</h2>
                                         <p className={style.desc_repo}><span>Descrição:</span> {repo.description}</p>
                                         <p className={style.stars_repo}><FaRegStar color="#ffb703" /> {repo.stargazers_count}</p>
-                                        <p className={style.att_repo}><span>Útima atualização:</span> {date(repo.updated_at).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })}</p>
                                     </div>
+                                    
+                                    <p className={style.att_repo}><span>Útima atualização:</span> {date(repo.updated_at).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })}</p>
                                 </a>    
                             </div>
                         ))
