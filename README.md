@@ -58,4 +58,6 @@ npm run dev
 ```
 
 ### Tudo pronto, você já pode abrir seu navegador na porta 
-```http://localhost:5173``` 
+```
+http://localhost:5173
+``` 

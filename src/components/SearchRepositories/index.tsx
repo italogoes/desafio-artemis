@@ -50,6 +50,7 @@ const SearchRepositoriesComponent = () => {
 
         dispatch(setLoading(false));
       } catch (error) {
+        alert("Erro ao acessar repositórios, verifique a sua chave de acesso pessoal do github. No readme desse projeto, há instruções de como gerar sua chave pessoal.")
         console.log(error);
         dispatch(setLoading(false));
       }
