@@ -81,7 +81,9 @@ const SearchRepositoriesComponent = () => {
         </div>
 
         {!isValidName && (
-          <div>{repoSearch} nao é um nome de repositorio valido</div>
+          <div>
+            <p className={style.title_erro}><span>"{repoSearch}"</span> não encontrado, tente novamente.</p>
+          </div>
         )}
       </div>
     </div>
