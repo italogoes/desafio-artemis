@@ -85,3 +85,40 @@
     background-color: #b8b8b8;
     cursor: not-allowed;
 }
+
+.filters{
+    margin: 10px 0 30px 0;
+    display: flex;
+    width: 500px;
+    box-shadow: 0 0 3px 1px #ddd;
+}
+
+.filters button{
+    border: none;
+    background-color: #eee;
+    cursor: pointer !important;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    transition: all .3s;
+    border: 1px solid #eee;
+}
+
+.filters button:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+.button_active{
+    background-color: #fff !important;
+    color: #000;
+}
+
+.button_disable{
+    color: #848484;
+    background-color: #eee;
+}
+
+.filter_text{
+    font-size: 18px;
+}
