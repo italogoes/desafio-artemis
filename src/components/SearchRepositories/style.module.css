@@ -11,6 +11,7 @@
     width: 700px;
     font-size: 50px;
     font-weight: 400;
+    color: #443d3d;
 }
 
 .box_search{
@@ -30,6 +31,7 @@
 }
 
 .search{
+    color: #443d3d;
     padding: 15px 10px 15px 30px;
     border-radius: 6px;
     border: none;
