@@ -25,3 +25,37 @@ entre diferentes páginas de resultados, bem como opções de ordenação que pe
 ao usuário organizar os repositórios exibidos, por exemplo, pelo número de estrelas ou
 pela data da última atualização.</li>
 </ul>
+
+# Como executar o projeto
+
+#### 1. Clone o repositório no seu computador
+```
+git clone https://github.com/italogoes/desafio-artemis.git
+```
+
+### 2. Instale as dependências
+```
+npm install
+```
+
+### 3. Gere seu Personal access token do github
+<ul>
+    <li>Clique em seu avatar do github no canto superior direito</li>
+    <li>Selecione a opção "Settings"</li>
+    <li>No menu lateral esquerdo, selecione "Developer Settings"</li>
+    <li>Expanda a opção "Personal access tokens"</li>
+    <li>Escolha a opção "Tokens (classic)" e clique em "Generate new token"</li>
+</ul>
+
+### 4. Adicione seu token ao arquivo .env
+```
+VITE_GITHUB_API_KEY=SEU_TOKEN_PESSOAL_AQUI
+```
+
+### 5. Rode o projeto
+```
+npm run dev
+```
+
+### Tudo pronto, você já pode abrir seu navegador na porta 
+```http://localhost:5173``` 
