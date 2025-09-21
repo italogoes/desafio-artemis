@@ -122,3 +122,25 @@
 .filter_text{
     font-size: 18px;
 }
+
+@media (width < 1280px) {
+    .content_repos{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .repos_single{
+        width: 300px;
+    }
+}
+
+@media (width < 800px){
+    .filters{
+        width: 300px;
+    }
+
+    .filters button{
+        padding: 5px;
+        font-size: 14px;
+    }
+}

@@ -18,3 +18,9 @@ body{
     margin: 0 auto;
     padding: 0 2%;
 }
+
+@media (width < 1280px){
+    .container{
+        width: 100%;
+    }
+}

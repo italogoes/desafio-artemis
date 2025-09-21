@@ -48,3 +48,14 @@
 .search:focus{
     outline: 1px solid #ddd;
 }
+
+@media (width < 800px){
+    .title{
+        width: 300px;
+        font-size: 30px;
+    }
+
+    .box_search{
+        width: 90%;
+    }
+}
